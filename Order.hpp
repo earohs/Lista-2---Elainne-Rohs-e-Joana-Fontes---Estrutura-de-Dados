@@ -23,7 +23,7 @@ public:
     // Copy Constructor, usado na criação de um objeto a partir de outro
     Order(const Order& other);
     // Copy Assignment Operator, usado para copiar valores entre instências já existentes
-    Order operator=(const Order& other);
+    Order& operator=(const Order& other);
 };
 
 #endif

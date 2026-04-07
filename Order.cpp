@@ -23,3 +23,5 @@ int Order::getTimestamp() {
 }
 
 Order::Order(const Order& other): id(other.id), type(other.type), price(other.price), timestamp(other.timestamp) {}
+
+Order& Order::operator=(const Order& other) {}

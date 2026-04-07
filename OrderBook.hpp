@@ -11,12 +11,21 @@ private:
     OrderNode* buyHead;
     OrderNode* sellHead;
     TransactionNode* transactionHead;
+    OrderNode* buyTail;
+    OrderNode* sellTail;
+    TransactionNode* transactionTail;
 
     int buySize;
     int sellSize;
     int transactionSize;
     // Estruturas internas escolhidas pelos alunos
     // para armazenar ordens de compra, venda e transações
+
+    // Funções auxiliares para o Copy constructor e o Copy Assignment Operator
+    void copyBuyList(const OrderBook& other);
+    void copySellList(const OrderBook& other);
+    void copyTransactionList(const OrderBook& other);
+    void clear();
 
 public:
 
@@ -41,7 +50,7 @@ public:
     // Copy Constructor, usado na criação de um objeto a partir de outro
     OrderBook(const OrderBook& other);
     // Copy Assignment Operator, usado para copiar valores entre instências já existentes
-    OrderBook operator=(const OrderBook& other);
+    OrderBook& operator=(const OrderBook& other);
 };
 
 #endif
