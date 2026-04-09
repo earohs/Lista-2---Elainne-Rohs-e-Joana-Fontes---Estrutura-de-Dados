@@ -124,3 +124,74 @@ bool OrderBook::cancel(int id) {
 }
 
 //Get
+Order* getBuyOrders(int* n) {
+    if(buyHead == nullptr) { //se a lista for vazia
+        *n = 0;
+        return nullptr;
+    }
+    *n = buySize; //ponteiro do tamanho de buySize
+    Order* arr = new Order[buySize];
+    OrderNode* current = buyHead;
+    int i = 0;
+    while(current != nullptr) { //percorre a lista
+        arr[i] = current->order;
+        i++;
+        current = current->next;
+    }
+    return arr;
+}
+    
+Order* getSellOrders(int* n){
+    if(sellHead == nullptr){
+        *n = 0;
+        return nullprt;
+    }    
+    *n = sellSize;
+    Order* arr = new Order[sellSize];
+    OrderNode* current = sellHead;
+    int i=0;
+
+    while(current != nullptr) { 
+        arr[i] = current->order;
+        i++;
+        current = current->next;
+    }
+    return arr;
+}
+
+Transaction* getTransactions(int* n){
+    if(transactionHead == nullptr){
+        *n = 0;
+        return nullprt;
+    }    
+    *n = transactionSize;
+    Transaction* arr = new Transaction[transactionSize];
+    TransactionNode* current = transactionHead;
+    int i=0;
+
+    while(current != nullptr) { 
+        arr[i] = current->transaction;
+        i++;
+        current = current->next;
+    }
+    return arr;
+}
+
+//Metodos
+void OrderBook::printBuyOrders(){
+    cout << "---- BuyOrders: ----" << endl;
+    if(buyHead == nullprt){
+        cout << "empty!!!" << endl;
+        return;
+    }
+
+    OrderNode* current = buyHead;
+    while (current != nullprt){
+        cout << "[" << current -> order.getId() << " | " << current-> order.getPrice() << " | " << current -> order.getTimestamp() << "]" << endl;
+        current = current->next;
+    }
+}
+
+void printSellOrders();
+void printTransactions();
+
