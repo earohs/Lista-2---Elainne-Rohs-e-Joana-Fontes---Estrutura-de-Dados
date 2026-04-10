@@ -192,6 +192,33 @@ void OrderBook::printBuyOrders(){
     }
 }
 
-void printSellOrders();
-void printTransactions();
+void OrderBook::printSellOrders(){
+    cout << "---- SellOrders: ----" << endl;
+    if(sellHead == nullprt){
+        cout << "empty!!!" << endl;
+        return;
+    }
+
+    OrderNode* current = sellHead;
+    while (current != nullprt){
+        cout << "[" << current -> order.getId() << " | " << current-> order.getPrice() << " | " << current -> order.getTimestamp() << "]" << endl;
+        current = current->next;
+    }
+}
+
+void OrderBook::printTransactions(){
+    cout << "---- Transactions: ----" << endl;
+    if(transactionHead == nullprt){
+        cout << "empty!!!" << endl;
+        return;
+    }
+
+    TransactionNode* current = transactionHead;
+    while (current != nullprt){
+        cout << "[" << current -> transaction.getBuyOrderId() << " , " << current-> transaction.getSellOrderId() << " , " << current -> transaction.getExecutionPrice() << "]" << endl;
+        current = current->next;
+    }
+}
+
+//Testes
 
